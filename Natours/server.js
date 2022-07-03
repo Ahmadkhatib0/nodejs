@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+require('dotenv').config();
 
 process.on('uncaughtException', (err) => {
   console.log(err.name, err.message);
@@ -7,7 +7,7 @@ process.on('uncaughtException', (err) => {
   process.exit(1);
 });
 
-dotenv.config({ path: './config.env' }); //those should be before the app
+// dotenv.config({ path: './config.env' }); //those should be before the app
 const app = require('./app');
 
 const DB = process.env.DATABASE.replace(
